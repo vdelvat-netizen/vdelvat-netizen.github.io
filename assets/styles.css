@@ -367,3 +367,32 @@ body.on-dark .cursor-dot{background:var(--dark-paper);mix-blend-mode:screen}
   ::view-transition-old(root),::view-transition-new(root){animation:none!important}
 }
 a:focus-visible,button:focus-visible{outline:2px solid var(--clay);outline-offset:3px;border-radius:2px}
+
+/* ============================================================ CONTACT FORM */
+.cform{margin-top:2.2rem;max-width:34rem;display:flex;flex-direction:column;gap:1.5rem}
+.cform .field{display:flex;flex-direction:column;gap:.5rem}
+.cform label{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:rgba(236,234,230,0.55)}
+.cform input,.cform textarea{
+  width:100%;background:transparent;border:none;border-bottom:1px solid rgba(236,234,230,0.22);
+  color:var(--dark-paper);font-family:var(--f-body);font-size:1.05rem;line-height:1.5;
+  padding:.55rem 0;transition:border-color .4s var(--ease);
+}
+.cform textarea{resize:vertical;min-height:3.4rem}
+.cform input::placeholder,.cform textarea::placeholder{color:rgba(236,234,230,0.28)}
+.cform input:focus,.cform textarea:focus{outline:none;border-color:var(--gold)}
+.cform-submit{
+  align-self:flex-start;margin-top:.4rem;display:inline-flex;align-items:center;
+  font-family:var(--f-mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;
+  border:1px solid rgba(236,234,230,0.32);border-radius:100px;padding:.85rem 1.6rem;
+  color:var(--dark-paper);position:relative;overflow:hidden;
+  transition:color .45s var(--ease),border-color .45s var(--ease);
+}
+.cform-submit::before{content:"";position:absolute;inset:0;background:var(--gold);transform:translateY(101%);transition:transform .55s var(--ease);z-index:0}
+.cform-submit span{position:relative;z-index:1;display:inline-flex;align-items:center;gap:.6rem}
+.cform-submit svg{width:15px;height:15px}
+.cform-submit:hover{color:var(--dark);border-color:var(--gold)}
+.cform-submit:hover::before{transform:translateY(0)}
+.cform-submit[disabled]{opacity:.55;pointer-events:none}
+.cform-status{min-height:1.3em;font-family:var(--f-mono);font-size:.78rem;letter-spacing:.02em;color:rgba(236,234,230,0.6);margin-top:.2rem}
+.cform-status.ok{color:var(--gold-soft)}
+.cform-status.err{color:#E08A7D}

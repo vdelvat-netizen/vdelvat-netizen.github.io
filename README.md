@@ -16,7 +16,7 @@ step, no framework, no external runtime dependencies.
 | `about.html` | About — the driver |
 | `journey.html` | The Path — animated world map + timeline |
 | `work.html` | Work Experience |
-| `contact.html` | Contact + resume |
+| `contact.html` | Contact (Web3Forms form) |
 
 Shared styles live in `assets/styles.css` and behaviour in `assets/main.js`.
 

@@ -136,4 +136,29 @@
       el.addEventListener('mouseleave', function(){ el.style.transform=''; });
     });
   }
+
+  /* ---------- contact form (Web3Forms, AJAX submit) ---------- */
+  (function(){
+    var form = document.getElementById('contactForm');
+    if(!form) return;
+    var status = document.getElementById('cformStatus');
+    var btn = form.querySelector('.cform-submit');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      if(status){ status.className='cform-status'; status.textContent='Sending…'; }
+      if(btn) btn.setAttribute('disabled','');
+      fetch(form.action, { method:'POST', body:new FormData(form), headers:{'Accept':'application/json'} })
+        .then(function(r){ return r.json().then(function(j){ return {ok:r.ok, j:j}; }); })
+        .then(function(res){
+          if(res.ok && res.j && res.j.success){
+            form.reset();
+            if(status){ status.className='cform-status ok'; status.textContent='Thanks — your message is on its way. I’ll get back to you soon.'; }
+          } else {
+            if(status){ status.className='cform-status err'; status.textContent=(res.j && res.j.message) ? res.j.message : 'Something went wrong — please try again.'; }
+          }
+        })
+        .catch(function(){ if(status){ status.className='cform-status err'; status.textContent='Network error — please try again in a moment.'; } })
+        .then(function(){ if(btn) btn.removeAttribute('disabled'); });
+    });
+  })();
 })();

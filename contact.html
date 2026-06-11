@@ -25,8 +25,8 @@
     <a href="work.html" data-nav="work"><span class="idx">03</span>Work</a>
     <a href="contact.html" data-nav="contact"><span class="idx">04</span>Contact</a>
   </nav>
-  <a class="btn-resume magnetic" href="Victor_Delvat_Resume.pdf" download data-cursor>
-    <span>Resume <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg></span>
+  <a class="btn-resume magnetic" href="contact.html" data-cursor>
+    <span>Get in touch <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
   </a>
   <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
 </header>
@@ -50,10 +50,28 @@
           Open to circular-accounting and supply-chain internships across Europe, the US and Asia.
           If a curious, connection-driven coordinator fits your team — reach out.
         </p>
-        <a class="contact-cta magnetic" href="mailto:victor.delvat@edhec.com" data-cursor>
-          <span class="u">victor.delvat@edhec.com</span>
-          <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
-        </a>
+        <form class="cform r-up" data-d="1" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="18f24018-1a38-4fb9-9c02-9bf3e3f29993" />
+          <input type="hidden" name="subject" value="New message from your portfolio site" />
+          <input type="hidden" name="from_name" value="Victor Delvat — Portfolio" />
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
+          <div class="field">
+            <label for="cf-name">Name</label>
+            <input id="cf-name" name="name" type="text" required autocomplete="name" placeholder="Your name" />
+          </div>
+          <div class="field">
+            <label for="cf-email">Email</label>
+            <input id="cf-email" name="email" type="email" required autocomplete="email" placeholder="you@company.com" />
+          </div>
+          <div class="field">
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" rows="4" required placeholder="A few words about the role or team…"></textarea>
+          </div>
+          <button class="cform-submit magnetic" type="submit" data-cursor>
+            <span>Send message <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+          </button>
+          <p class="cform-status" id="cformStatus" role="status" aria-live="polite"></p>
+        </form>
       </div>
 
       <nav class="contact-links r-up" data-d="2" aria-label="Contact links">
@@ -61,12 +79,6 @@
           <span class="k">LinkedIn</span>
           <span class="v">in/victor-delvat
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
-          </span>
-        </a>
-        <a href="Victor_Delvat_Resume.pdf" download data-cursor>
-          <span class="k">Resume</span>
-          <span class="v">Download PDF
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
           </span>
         </a>
         <a href="#" data-cursor style="border-bottom:none">
