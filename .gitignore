@@ -9,3 +9,9 @@
 
 # Resume PDF kept local (contact is now a form)
 Victor_Delvat_Resume.pdf
+
+# Local one-click publish helper (machine-specific path)
+publish.command
+
+# Original source photo (kept local; site uses the optimized assets/victor.jpg)
+assets/ChatGPT Image*

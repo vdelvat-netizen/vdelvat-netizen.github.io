@@ -154,8 +154,8 @@ body.on-dark .cursor-dot{background:var(--dark-paper);mix-blend-mode:screen}
 /* ============================================================ HERO */
 .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding-top:6rem;padding-bottom:3rem;position:relative;z-index:1}
 .hero-top{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;margin-bottom:clamp(1.5rem,4vh,3rem);flex-wrap:wrap}
-.hero-head{display:flex;align-items:flex-end;justify-content:space-between;gap:clamp(1.5rem,4vw,3rem);flex-wrap:wrap}
-.hero-name{font-size:clamp(3.8rem,17vw,17rem);letter-spacing:-0.04em;line-height:0.86}
+.hero-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,0.74fr);align-items:center;gap:clamp(1.5rem,4vw,3.5rem)}
+.hero-name{font-size:clamp(3rem,11.5vw,11rem);letter-spacing:-0.04em;line-height:0.88}
 .hero-name em{font-style:italic;font-weight:320;color:var(--clay)}
 .hero-role{display:flex;align-items:center;gap:1.1rem;flex-wrap:wrap;margin-top:clamp(1.4rem,3.5vh,2.6rem);
   font-family:var(--f-mono);font-size:clamp(0.78rem,1.1vw,0.95rem);letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-soft)}
@@ -172,8 +172,15 @@ body.on-dark .cursor-dot{background:var(--dark-paper);mix-blend-mode:screen}
 @keyframes cue{0%{transform:translateX(-100%)}50%{transform:translateX(0)}100%{transform:translateX(100%)}}
 
 /* ============================================================ PORTRAIT / PHOTO SLOTS */
-.portrait{position:relative;flex:none;align-self:flex-end;margin-bottom:.4rem;width:clamp(160px,18vw,270px);aspect-ratio:4/5;
-  border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--paper-2)}
+.portrait{position:relative;justify-self:end;align-self:center;height:clamp(330px,52vh,560px);aspect-ratio:4/5;width:auto;max-width:100%}
+.portrait.is-empty{border:1px dashed var(--line);border-radius:18px;background:var(--paper-2);overflow:hidden}
+.portrait:not(.is-empty) img{object-position:50% 12%;
+  -webkit-mask-image:linear-gradient(to right,transparent 0,#000 15%,#000 95%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 8%,#000 90%,transparent 100%);
+  -webkit-mask-composite:source-in;
+  mask-image:linear-gradient(to right,transparent 0,#000 15%,#000 95%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 8%,#000 90%,transparent 100%);
+  mask-composite:intersect}
+.portrait:not(.is-empty)::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:linear-gradient(to right,var(--paper),transparent 20%),linear-gradient(to top,var(--paper),transparent 14%)}
 .portrait img,.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
 .portrait figcaption,.photo figcaption{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;
   font-family:var(--f-mono);font-size:0.64rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted-2);line-height:1.7}
@@ -344,6 +351,8 @@ body.on-dark .cursor-dot{background:var(--dark-paper);mix-blend-mode:screen}
   .nav-toggle span{width:22px;height:1.5px;background:var(--ink);transition:transform .4s var(--ease),opacity .3s}
   .nav-toggle[aria-expanded="true"] span:first-child{transform:translateY(3.25px) rotate(45deg)}
   .nav-toggle[aria-expanded="true"] span:last-child{transform:translateY(-3.25px) rotate(-45deg)}
+  .hero-head{grid-template-columns:1fr;gap:2rem}
+  .portrait{height:auto;width:min(72%,300px);aspect-ratio:4/5;justify-self:start}
   .hero-grid{grid-template-columns:1fr;gap:2.5rem}
   .hero-meta{justify-self:start}
   .about-grid{grid-template-columns:1fr;gap:2rem}
