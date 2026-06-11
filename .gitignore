@@ -1,0 +1,8 @@
+# OS
+.DS_Store
+
+# Local dev tooling (Claude Code preview server) — not needed to host the site
+.claude/
+
+# Logs
+*.log
